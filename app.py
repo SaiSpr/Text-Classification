@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 
 # loading the trained model
-model = pickle.load(open('model.pkl', 'rb'))
+#model = pickle.load(open('model.pkl', 'rb'))
 
 # create title
 st.title('Predicting if message is spam or not')
@@ -18,9 +18,9 @@ if submit:
     # st.write(prediction)
     
     if prediction[0] == 'spam':
-        st.warning('This message is spam')
+        st.warning('This Article is Propagandistic')
     else:
-        st.success('This message is Legit (HAM)')
+        st.success('This article is Non-Propagandistic')
 
 
 st.balloons()
