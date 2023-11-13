@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 
 # loading the trained model
-#model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('Pickle_RL_Model.pkl', 'rb'))
 
 # create title
 st.title('Truth Seeker')
