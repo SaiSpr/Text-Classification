@@ -1,6 +1,5 @@
 joblib
-spacy
 pandas
 matplotlib
-wordcloud
+streamlit
 scikit-learn
