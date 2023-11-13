@@ -3,4 +3,4 @@ spacy
 pandas
 matplotlib
 wordcloud
-pickle
+
