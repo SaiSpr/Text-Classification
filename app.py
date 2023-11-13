@@ -5,9 +5,9 @@ import pickle
 #model = pickle.load(open('model.pkl', 'rb'))
 
 # create title
-st.title('Predicting if message is spam or not')
+st.title('Truth Seeker')
 
-message = st.text_input('Enter a message')
+message = st.text_input('Enter an article')
 
 submit = st.button('Predict')
 
