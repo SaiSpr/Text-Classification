@@ -16,7 +16,12 @@ st.title("Truth Seeker App")
 #     ],
 # )
 
-# if option == "Classify Text":
+@st.cache(hash_funcs={'self': lambda _: 0})
+def get_model():
+   tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+   model = BertForSequenceClassification.from_pretrained("sai/NewsTunedBert")
+   return tokenizer, model
+    
 user_input = st.text_area('Enter Text to Analyze')
 
 if user_input is not None:
@@ -28,11 +33,7 @@ if user_input is not None:
         st.info("The article is "+ result)
 
 
-@st.cache(hash_funcs={'self': lambda _: 0})
-def get_model():
-   tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-   model = BertForSequenceClassification.from_pretrained("pnichite/YTFineTuneBert")
-   return tokenizer, model
+
     
 # elif option == "Question Answering":
 #     q_a = pipeline("question-answering")
