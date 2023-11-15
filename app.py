@@ -25,7 +25,7 @@ if user_input is not None:
         prediction  = classifier(user_input)
         result = "Propagandistic" if (prediction[0]["label"]) == 'NEGATIVE' else "Non-Propagandistic"
         st.subheader("Result:")
-        st.info("The article is "+ result + ".")
+        st.info("The article is "+ result)
         # st.write(prediction)
         # st.write(prediction[0]) 
         # st.write(prediction[0]["label"])
