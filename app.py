@@ -22,7 +22,7 @@ user_input = st.text_area('Enter Text to Analyze')
 if user_input is not None:
     if st.button("Analyse"):
         classifier = pipeline("sentiment-analysis")
-        prediction  = classifier(text)
+        prediction  = classifier(user_input)
         # class_name = "Propagandistic" if prediction == 1 else "Non-Propagandistic"
         # st.subheader("Result:")
         # st.info("The article is "+ result + ".")
