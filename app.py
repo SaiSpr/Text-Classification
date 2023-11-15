@@ -23,7 +23,7 @@ if user_input is not None:
     if st.button("Analyse"):
         classifier = pipeline("sentiment-analysis")
         prediction  = classifier(user_input)
-        class_name = "Propagandistic" if (prediction[0]["label"]) == 'NEGATIVE' else "Non-Propagandistic"
+        result = "Propagandistic" if (prediction[0]["label"]) == 'NEGATIVE' else "Non-Propagandistic"
         st.subheader("Result:")
         st.info("The article is "+ result + ".")
         # st.write(prediction)
