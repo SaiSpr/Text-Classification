@@ -28,7 +28,7 @@ if user_input is not None:
         # st.info("The article is "+ result + ".")
         st.write(prediction)
         st.write(prediction[0]) 
-        st.write(prediction[0]['"label"])
+        st.write(prediction[0]["label"])
 
 # elif option == "Question Answering":
 #     q_a = pipeline("question-answering")
