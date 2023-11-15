@@ -23,12 +23,12 @@ if user_input is not None:
     if st.button("Analyse"):
         classifier = pipeline("sentiment-analysis")
         prediction  = classifier(user_input)
-        # class_name = "Propagandistic" if prediction == 1 else "Non-Propagandistic"
-        # st.subheader("Result:")
-        # st.info("The article is "+ result + ".")
-        st.write(prediction)
-        st.write(prediction[0]) 
-        st.write(prediction[0]["label"])
+        class_name = "Propagandistic" if (prediction[0]["label"]) == 'NEGATIVE' else "Non-Propagandistic"
+        st.subheader("Result:")
+        st.info("The article is "+ result + ".")
+        # st.write(prediction)
+        # st.write(prediction[0]) 
+        # st.write(prediction[0]["label"])
 
 # elif option == "Question Answering":
 #     q_a = pipeline("question-answering")
