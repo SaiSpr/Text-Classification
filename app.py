@@ -26,10 +26,14 @@ if user_input is not None:
         result = "Propagandistic" if (prediction[0]["label"]) == 'NEGATIVE' else "Non-Propagandistic"
         st.subheader("Result:")
         st.info("The article is "+ result)
-        # st.write(prediction)
-        # st.write(prediction[0]) 
-        # st.write(prediction[0]["label"])
 
+
+@st.cache(hash_funcs={'self': lambda _: 0})
+def get_model():
+   tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+   model = BertForSequenceClassification.from_pretrained("pnichite/YTFineTuneBert")
+   return tokenizer, model
+    
 # elif option == "Question Answering":
 #     q_a = pipeline("question-answering")
 #     context = st.text_area(label="Enter context")
@@ -65,11 +69,7 @@ if user_input is not None:
 
 
 
-@st.cache(hash_funcs={'self': lambda _: 0})
-def get_model():
-   tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-   model = BertForSequenceClassification.from_pretrained("pnichite/YTFineTuneBert")
-   return tokenizer, model
+
 
 # @st.cache(allow_output_mutation=True)
 # def get_model():
@@ -78,24 +78,24 @@ def get_model():
 #     return tokenizer,model
 
 
-tokenizer,model = get_model()
+# tokenizer,model = get_model()
 
-user_input = st.text_area('Enter Text to Analyze')
-button = st.button("Analyze")
+# user_input = st.text_area('Enter Text to Analyze')
+# button = st.button("Analyze")
 
-d = {
+# d = {
     
-  1:'Toxic',
-  0:'Non Toxic'
-}
+#   1:'Toxic',
+#   0:'Non Toxic'
+# }
 
-if user_input and button :
-    test_sample = tokenizer([user_input], padding=True, truncation=True, max_length=512,return_tensors='pt')
-    # test_sample
-    output = model(**test_sample)
-    st.write("Logits: ",output.logits)
-    y_pred = np.argmax(output.logits.detach().numpy(),axis=1)
-    st.write("Prediction: ",d[y_pred[0]])
+# if user_input and button :
+#     test_sample = tokenizer([user_input], padding=True, truncation=True, max_length=512,return_tensors='pt')
+#     # test_sample
+#     output = model(**test_sample)
+#     st.write("Logits: ",output.logits)
+#     y_pred = np.argmax(output.logits.detach().numpy(),axis=1)
+#     st.write("Prediction: ",d[y_pred[0]])
 
 
 
